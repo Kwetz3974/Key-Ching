@@ -47,7 +47,7 @@ const quickLinks = [
 
 function Dashboard() {
   const overall = Math.round((totals.lessonsDone / totals.lessonsTotal) * 100);
-  const current = modules.find((m) => m.status === "in-progress") ?? modules[0];
+  const current = modules.find((m) => m.status === "in-progress") ?? modules[0]!;
   const completedModules = modules.filter((m) => m.status === "completed");
   const nextTest = assessments.find((a) => a.status === "available");
 

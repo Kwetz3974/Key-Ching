@@ -11,7 +11,7 @@ export const Route = createFileRoute("/_platform")({
   component: PlatformLayout,
 });
 
-function NavList({ onNavigate }: { onNavigate?: () => void }) {
+function NavList({ onNavigate }: { onNavigate?: (() => void) | undefined }) {
   return (
     <nav className="flex flex-col gap-1" aria-label="Main">
       {mainNav.map((item) => (
@@ -32,7 +32,7 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
   );
 }
 
-function SidebarBody({ onNavigate }: { onNavigate?: () => void }) {
+function SidebarBody({ onNavigate }: { onNavigate?: (() => void) | undefined }) {
   return (
     <div className="flex h-full flex-col gap-8 p-5">
       <Logo />
