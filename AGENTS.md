@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Signed-in pages live under the pathless `_platform` layout (sidebar + mobile tab bar); add new app sections there and to `src/lib/nav.ts` so navigation stays in one place.
+- Route files whose segment is literally `test` must be escaped (`_platform.[test].tsx`) so Vitest does not pick them up as test files.
+- Dashboard/rewards figures come from `src/lib/sample-data.ts` until real data exists; replace that module rather than hardcoding numbers in pages.

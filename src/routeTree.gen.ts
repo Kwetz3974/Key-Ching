@@ -10,33 +10,144 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PlatformRouteImport } from './routes/_platform'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as PlatformDashboardRouteImport } from './routes/_platform.dashboard'
+import { Route as PlatformLearnRouteImport } from './routes/_platform.learn'
+import { Route as PlatformProfileRouteImport } from './routes/_platform.profile'
+import { Route as PlatformRewardsRouteImport } from './routes/_platform.rewards'
+import { Route as PlatformSimulateRouteImport } from './routes/_platform.simulate'
+import { Route as PlatformChar91testChar93RouteImport } from './routes/_platform.[test]'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlatformRoute = PlatformRouteImport.update({
+  id: '/_platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatformDashboardRoute = PlatformDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => PlatformRoute,
+} as any)
+const PlatformLearnRoute = PlatformLearnRouteImport.update({
+  id: '/learn',
+  path: '/learn',
+  getParentRoute: () => PlatformRoute,
+} as any)
+const PlatformProfileRoute = PlatformProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => PlatformRoute,
+} as any)
+const PlatformRewardsRoute = PlatformRewardsRouteImport.update({
+  id: '/rewards',
+  path: '/rewards',
+  getParentRoute: () => PlatformRoute,
+} as any)
+const PlatformSimulateRoute = PlatformSimulateRouteImport.update({
+  id: '/simulate',
+  path: '/simulate',
+  getParentRoute: () => PlatformRoute,
+} as any)
+const PlatformChar91testChar93Route =
+  PlatformChar91testChar93RouteImport.update({
+    id: '/test',
+    path: '/test',
+    getParentRoute: () => PlatformRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/dashboard': typeof PlatformDashboardRoute
+  '/learn': typeof PlatformLearnRoute
+  '/profile': typeof PlatformProfileRoute
+  '/rewards': typeof PlatformRewardsRoute
+  '/simulate': typeof PlatformSimulateRoute
+  '/test': typeof PlatformChar91testChar93Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/dashboard': typeof PlatformDashboardRoute
+  '/learn': typeof PlatformLearnRoute
+  '/profile': typeof PlatformProfileRoute
+  '/rewards': typeof PlatformRewardsRoute
+  '/simulate': typeof PlatformSimulateRoute
+  '/test': typeof PlatformChar91testChar93Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_platform': typeof PlatformRouteWithChildren
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/_platform/dashboard': typeof PlatformDashboardRoute
+  '/_platform/learn': typeof PlatformLearnRoute
+  '/_platform/profile': typeof PlatformProfileRoute
+  '/_platform/rewards': typeof PlatformRewardsRoute
+  '/_platform/simulate': typeof PlatformSimulateRoute
+  '/_platform/test': typeof PlatformChar91testChar93Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/dashboard'
+    | '/learn'
+    | '/profile'
+    | '/rewards'
+    | '/simulate'
+    | '/test'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/dashboard'
+    | '/learn'
+    | '/profile'
+    | '/rewards'
+    | '/simulate'
+    | '/test'
+  id:
+    | '__root__'
+    | '/'
+    | '/_platform'
+    | '/login'
+    | '/register'
+    | '/_platform/dashboard'
+    | '/_platform/learn'
+    | '/_platform/profile'
+    | '/_platform/rewards'
+    | '/_platform/simulate'
+    | '/_platform/test'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PlatformRoute: typeof PlatformRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +159,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_platform': {
+      id: '/_platform'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_platform/dashboard': {
+      id: '/_platform/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof PlatformDashboardRouteImport
+      parentRoute: typeof PlatformRoute
+    }
+    '/_platform/learn': {
+      id: '/_platform/learn'
+      path: '/learn'
+      fullPath: '/learn'
+      preLoaderRoute: typeof PlatformLearnRouteImport
+      parentRoute: typeof PlatformRoute
+    }
+    '/_platform/profile': {
+      id: '/_platform/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof PlatformProfileRouteImport
+      parentRoute: typeof PlatformRoute
+    }
+    '/_platform/rewards': {
+      id: '/_platform/rewards'
+      path: '/rewards'
+      fullPath: '/rewards'
+      preLoaderRoute: typeof PlatformRewardsRouteImport
+      parentRoute: typeof PlatformRoute
+    }
+    '/_platform/simulate': {
+      id: '/_platform/simulate'
+      path: '/simulate'
+      fullPath: '/simulate'
+      preLoaderRoute: typeof PlatformSimulateRouteImport
+      parentRoute: typeof PlatformRoute
+    }
+    '/_platform/test': {
+      id: '/_platform/test'
+      path: '/test'
+      fullPath: '/test'
+      preLoaderRoute: typeof PlatformChar91testChar93RouteImport
+      parentRoute: typeof PlatformRoute
+    }
   }
 }
 
+interface PlatformRouteChildren {
+  PlatformDashboardRoute: typeof PlatformDashboardRoute
+  PlatformLearnRoute: typeof PlatformLearnRoute
+  PlatformProfileRoute: typeof PlatformProfileRoute
+  PlatformRewardsRoute: typeof PlatformRewardsRoute
+  PlatformSimulateRoute: typeof PlatformSimulateRoute
+  PlatformChar91testChar93Route: typeof PlatformChar91testChar93Route
+}
+
+const PlatformRouteChildren: PlatformRouteChildren = {
+  PlatformDashboardRoute: PlatformDashboardRoute,
+  PlatformLearnRoute: PlatformLearnRoute,
+  PlatformProfileRoute: PlatformProfileRoute,
+  PlatformRewardsRoute: PlatformRewardsRoute,
+  PlatformSimulateRoute: PlatformSimulateRoute,
+  PlatformChar91testChar93Route: PlatformChar91testChar93Route,
+}
+
+const PlatformRouteWithChildren = PlatformRoute._addFileChildren(
+  PlatformRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PlatformRoute: PlatformRouteWithChildren,
+  LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
