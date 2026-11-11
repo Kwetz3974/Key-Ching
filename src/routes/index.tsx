@@ -142,7 +142,7 @@ function Landing() {
               alt="A glowing Bitcoin key protected inside a shield, surrounded by a checklist, padlock and graduation cap"
               width={1280}
               height={1088}
-              className="animate-float relative w-full rounded-3xl"
+              className="animate-float mask-soft-edge relative w-full"
             />
           </div>
         </div>

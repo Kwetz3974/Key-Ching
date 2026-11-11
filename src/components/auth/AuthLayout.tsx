@@ -25,7 +25,7 @@ export function AuthLayout({
             alt=""
             width={1280}
             height={1088}
-            className="animate-float mx-auto w-full max-w-md"
+            className="animate-float mask-soft-edge mx-auto w-full max-w-md"
           />
           <h2 className="mt-8 max-w-md text-3xl font-bold">Learn. Simulate. Test. Earn.</h2>
           <p className="mt-3 max-w-md text-navy-muted">

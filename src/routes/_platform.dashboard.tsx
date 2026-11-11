@@ -103,7 +103,7 @@ function Dashboard() {
             </span>
             <span className="min-w-0">
               <span className="block font-display font-bold">{q.label}</span>
-              <span className="block truncate text-xs text-muted-foreground sm:text-sm">{q.text}</span>
+              <span className="block text-xs leading-snug text-muted-foreground sm:text-sm">{q.text}</span>
             </span>
           </Link>
         ))}

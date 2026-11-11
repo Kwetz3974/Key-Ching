@@ -210,3 +210,8 @@
 @utility animate-float {
   animation: float-slow 6s ease-in-out infinite;
 }
+
+@utility mask-soft-edge {
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 55%, transparent 100%);
+}
