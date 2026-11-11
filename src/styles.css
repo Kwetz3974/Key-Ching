@@ -212,6 +212,6 @@
 }
 
 @utility mask-soft-edge {
-  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 55%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, black 62%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, black 62%, transparent 100%);
 }
