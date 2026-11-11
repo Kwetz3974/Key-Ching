@@ -18,7 +18,7 @@ import { Route as PlatformLearnRouteImport } from './routes/_platform.learn'
 import { Route as PlatformProfileRouteImport } from './routes/_platform.profile'
 import { Route as PlatformRewardsRouteImport } from './routes/_platform.rewards'
 import { Route as PlatformSimulateRouteImport } from './routes/_platform.simulate'
-import { Route as PlatformTestRouteImport } from './routes/_platform.test'
+import { Route as PlatformChar91testChar93RouteImport } from './routes/_platform.[test]'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,11 +64,12 @@ const PlatformSimulateRoute = PlatformSimulateRouteImport.update({
   path: '/simulate',
   getParentRoute: () => PlatformRoute,
 } as any)
-const PlatformTestRoute = PlatformTestRouteImport.update({
-  id: '/test',
-  path: '/test',
-  getParentRoute: () => PlatformRoute,
-} as any)
+const PlatformChar91testChar93Route =
+  PlatformChar91testChar93RouteImport.update({
+    id: '/test',
+    path: '/test',
+    getParentRoute: () => PlatformRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -79,7 +80,7 @@ export interface FileRoutesByFullPath {
   '/profile': typeof PlatformProfileRoute
   '/rewards': typeof PlatformRewardsRoute
   '/simulate': typeof PlatformSimulateRoute
-  '/test': typeof PlatformTestRoute
+  '/test': typeof PlatformChar91testChar93Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -90,7 +91,7 @@ export interface FileRoutesByTo {
   '/profile': typeof PlatformProfileRoute
   '/rewards': typeof PlatformRewardsRoute
   '/simulate': typeof PlatformSimulateRoute
-  '/test': typeof PlatformTestRoute
+  '/test': typeof PlatformChar91testChar93Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -103,7 +104,7 @@ export interface FileRoutesById {
   '/_platform/profile': typeof PlatformProfileRoute
   '/_platform/rewards': typeof PlatformRewardsRoute
   '/_platform/simulate': typeof PlatformSimulateRoute
-  '/_platform/test': typeof PlatformTestRoute
+  '/_platform/test': typeof PlatformChar91testChar93Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -218,7 +219,7 @@ declare module '@tanstack/react-router' {
       id: '/_platform/test'
       path: '/test'
       fullPath: '/test'
-      preLoaderRoute: typeof PlatformTestRouteImport
+      preLoaderRoute: typeof PlatformChar91testChar93RouteImport
       parentRoute: typeof PlatformRoute
     }
   }
@@ -230,7 +231,7 @@ interface PlatformRouteChildren {
   PlatformProfileRoute: typeof PlatformProfileRoute
   PlatformRewardsRoute: typeof PlatformRewardsRoute
   PlatformSimulateRoute: typeof PlatformSimulateRoute
-  PlatformTestRoute: typeof PlatformTestRoute
+  PlatformChar91testChar93Route: typeof PlatformChar91testChar93Route
 }
 
 const PlatformRouteChildren: PlatformRouteChildren = {
@@ -239,7 +240,7 @@ const PlatformRouteChildren: PlatformRouteChildren = {
   PlatformProfileRoute: PlatformProfileRoute,
   PlatformRewardsRoute: PlatformRewardsRoute,
   PlatformSimulateRoute: PlatformSimulateRoute,
-  PlatformTestRoute: PlatformTestRoute,
+  PlatformChar91testChar93Route: PlatformChar91testChar93Route,
 }
 
 const PlatformRouteWithChildren = PlatformRoute._addFileChildren(
