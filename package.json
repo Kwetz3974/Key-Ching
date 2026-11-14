@@ -1,0 +1,8 @@
+{
+  "name": "key-ching",
+  "version": "0.1.0",
+  "description": "Learn. Simulate. Test. Earn. Bitcoin self-custody education.",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
+  "dependencies": { "express": "^4.19.2", "dotenv": "^16.4.5" }
+}

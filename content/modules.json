@@ -1,0 +1,810 @@
+{
+  "demo": {
+    "phrase": [
+      "lemon",
+      "orbit",
+      "river",
+      "candle",
+      "maple",
+      "hollow",
+      "anchor",
+      "velvet",
+      "pepper",
+      "glacier",
+      "tiny",
+      "harbor"
+    ],
+    "decoys": [
+      "planet",
+      "sugar",
+      "window",
+      "drift"
+    ],
+    "passphrase": "northstar"
+  },
+  "modules": [
+    {
+      "id": "keys-basics",
+      "level": "Beginner",
+      "title": "Keys & Recovery Phrases",
+      "sats": 21,
+      "passMark": 0.6,
+      "lessons": [
+        "A wallet doesn't store coins. It stores keys that prove you can spend them on the Bitcoin network.",
+        "Your private key signs transactions. Anyone who has it controls your Bitcoin. Your address is safe to share.",
+        "Your recovery phrase (12 or 24 words) can rebuild your wallet on any compatible device. Treat it like the keys themselves.",
+        "A PIN only unlocks the app on one device. It is NOT a backup and cannot recover your funds."
+      ],
+      "simulation": {
+        "prompt": "You lost your phone. It had your wallet app. You have a new phone. What do you do first?",
+        "choices": [
+          {
+            "text": "Reinstall the wallet and restore using my offline recovery phrase backup.",
+            "good": true,
+            "feedback": "Correct. The phrase rebuilds your wallet."
+          },
+          {
+            "text": "Email support with my PIN so they can reset it.",
+            "good": false,
+            "feedback": "Self-custody has no support desk. A PIN can't restore a wallet."
+          },
+          {
+            "text": "Check if my PIN works on the new phone.",
+            "good": false,
+            "feedback": "A PIN is tied to the old device. Without the phrase, access is gone."
+          }
+        ]
+      },
+      "quiz": [
+        {
+          "q": "What actually lets you recover a wallet on a new device?",
+          "options": [
+            "PIN",
+            "Recovery phrase",
+            "Wallet app name"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Who should you share your recovery phrase with?",
+          "options": [
+            "Support staff",
+            "A friend you trust",
+            "Nobody"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Which is safe to share to receive Bitcoin?",
+          "options": [
+            "Private key",
+            "Recovery phrase",
+            "Receiving address"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "If your Bitcoin sits on an exchange, who holds the private keys?",
+          "options": [
+            "You",
+            "The exchange",
+            "The Bitcoin network"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "What does a PIN protect?",
+          "options": [
+            "Your funds on every device",
+            "The app on one device",
+            "Your recovery phrase"
+          ],
+          "answer": 1
+        }
+      ],
+      "sims": [
+        {
+          "type": "recovery",
+          "title": "Recover your wallet",
+          "balance": 120000,
+          "intro": "Your phone fell in a river and you bought a new one. You still have your paper backup: a demo phrase that works in no real wallet."
+        }
+      ]
+    },
+    {
+      "id": "backups-scams",
+      "level": "Intermediate",
+      "title": "Backups & Scams",
+      "sats": 50,
+      "passMark": 0.7,
+      "lessons": [
+        "Phishing: fake sites, DMs and 'support' agents ask for your phrase. Real wallets never will.",
+        "Back up your phrase on paper or metal, offline. Not in screenshots, notes apps, email or cloud storage.",
+        "Keep backups in more than one secure place, and test recovery with a small amount first.",
+        "Hardware wallets keep keys on a dedicated device, so a hacked phone or laptop can't steal them."
+      ],
+      "simulation": {
+        "prompt": "A 'wallet support' DM says your wallet is at risk and asks you to verify by typing your 12 words on their link.",
+        "choices": [
+          {
+            "text": "Type the words quickly to secure my funds.",
+            "good": false,
+            "feedback": "Classic scam. Anyone with your words controls your Bitcoin."
+          },
+          {
+            "text": "Ignore and report it. Support never needs my phrase.",
+            "good": true,
+            "feedback": "Correct. Never enter your phrase on a website or in a chat."
+          }
+        ]
+      },
+      "quiz": [
+        {
+          "q": "Best place for a recovery phrase backup?",
+          "options": [
+            "Photo in cloud gallery",
+            "Paper or metal stored offline",
+            "Notes app"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "A stranger offers wallet 'support' and asks for your words. You...",
+          "options": [
+            "Send them",
+            "Send half",
+            "Refuse and report"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Why test a recovery with a small amount first?",
+          "options": [
+            "To earn rewards",
+            "To prove the backup works before trusting it with everything",
+            "Banks require it"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "A website says 'validate your wallet' by entering your words. This is...",
+          "options": [
+            "A routine security check",
+            "A phishing attempt",
+            "A wallet update"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "How does a hardware wallet reduce risk?",
+          "options": [
+            "Keys stay on a dedicated device, away from your phone or laptop",
+            "It makes sending cheaper",
+            "It hides your transactions from the network"
+          ],
+          "answer": 0
+        }
+      ],
+      "sims": [
+        {
+          "type": "scenes",
+          "title": "Phishing inbox",
+          "intro": "Six messages just landed. Decide what to do with each one.",
+          "wrap": "Pattern to remember: real services never ask for your words, and urgency is a warning sign.",
+          "scenes": [
+            {
+              "card": {
+                "kind": "mail",
+                "from": "Wallet Support <help@wallet-verify.co>",
+                "subject": "Urgent: verify your recovery phrase",
+                "body": "Your wallet will be frozen in 24 hours. Reply with your 12 words to keep access."
+              },
+              "q": "Scam or safe?",
+              "options": [
+                {
+                  "t": "Scam: report and delete",
+                  "good": true,
+                  "fb": "Wallets and support never ask for your words."
+                },
+                {
+                  "t": "Safe: reply with my words",
+                  "good": false,
+                  "fb": "Anyone with your words controls your Bitcoin."
+                }
+              ]
+            },
+            {
+              "card": {
+                "kind": "mail",
+                "from": "no-reply@yourwallet.app",
+                "subject": "New app version available",
+                "body": "A new version is out. Update from your official app store. We never ask for your recovery phrase."
+              },
+              "q": "Scam or safe?",
+              "options": [
+                {
+                  "t": "Scam: delete it",
+                  "good": false,
+                  "fb": "Not everything is a scam. This asks for nothing and points to the official store."
+                },
+                {
+                  "t": "Safe: update only through the official store",
+                  "good": true,
+                  "fb": "It asks for nothing sensitive."
+                }
+              ]
+            },
+            {
+              "card": {
+                "kind": "mail",
+                "from": "Giveaway Bot",
+                "subject": "Send 0.01 BTC, get 0.1 BTC back!",
+                "body": "Limited giveaway. Send first to verify your address."
+              },
+              "q": "Scam or safe?",
+              "options": [
+                {
+                  "t": "Send a little to try it",
+                  "good": false,
+                  "fb": "Giveaways that ask you to send first are always scams."
+                },
+                {
+                  "t": "Scam: ignore and block",
+                  "good": true,
+                  "fb": "Nobody doubles your Bitcoin."
+                }
+              ]
+            },
+            {
+              "card": {
+                "kind": "mail",
+                "from": "YourWallet Team <team@yourwallet-secure.io>",
+                "subject": "Your device needs validating",
+                "body": "Enter your recovery phrase at the link below to validate your device.",
+                "link": "https://yourwallet.com.verify-device.xyz/start"
+              },
+              "q": "Spot the trick in the link.",
+              "options": [
+                {
+                  "t": "The link starts with yourwallet.com, so it's fine",
+                  "good": false,
+                  "fb": "The real domain is what comes right before the first slash: verify-device.xyz."
+                },
+                {
+                  "t": "Fake domain, and it asks for my words",
+                  "good": true,
+                  "fb": "Two red flags in one message."
+                }
+              ]
+            },
+            {
+              "card": {
+                "kind": "mail",
+                "from": "Friend (new account)",
+                "subject": "Quick favour",
+                "body": "I'm stuck abroad. Can you send me 50,000 sats on Lightning right now?"
+              },
+              "q": "What do you do?",
+              "options": [
+                {
+                  "t": "Send it, it's my friend",
+                  "good": false,
+                  "fb": "Hijacked accounts are common."
+                },
+                {
+                  "t": "Call them on a number I already have",
+                  "good": true,
+                  "fb": "Confirm on a channel you already trust."
+                }
+              ]
+            },
+            {
+              "card": {
+                "kind": "mail",
+                "from": "alerts@yourexchange.com",
+                "subject": "Withdrawal confirmation code",
+                "body": "You requested a withdrawal. If this wasn't you, secure your account."
+              },
+              "q": "What do you do?",
+              "options": [
+                {
+                  "t": "Safe if I made the request. If not, secure my account on the official site",
+                  "good": true,
+                  "fb": "Never use links in the message to log in."
+                },
+                {
+                  "t": "Share the code with whoever asks",
+                  "good": false,
+                  "fb": "Codes are for you only."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "backup",
+          "title": "Backup builder",
+          "intro": "Choose how you store your recovery phrase. Then six disasters hit.",
+          "options": [
+            {
+              "name": "Paper in a drawer at home",
+              "survives": [
+                "forget"
+              ],
+              "exposed": [
+                "snoop"
+              ]
+            },
+            {
+              "name": "Steel plate in a locked home safe",
+              "survives": [
+                "fire",
+                "flood",
+                "forget"
+              ],
+              "exposed": []
+            },
+            {
+              "name": "Photo saved to cloud storage",
+              "survives": [
+                "fire",
+                "flood",
+                "house",
+                "forget"
+              ],
+              "exposed": [
+                "hack"
+              ]
+            },
+            {
+              "name": "Note in my phone's notes app",
+              "survives": [
+                "forget"
+              ],
+              "exposed": [
+                "hack"
+              ]
+            },
+            {
+              "name": "Memorise it, write nothing",
+              "survives": [],
+              "exposed": []
+            },
+            {
+              "name": "Sealed steel copy at a trusted relative's",
+              "survives": [
+                "fire",
+                "flood",
+                "house",
+                "forget"
+              ],
+              "exposed": []
+            }
+          ],
+          "threats": [
+            {
+              "id": "fire",
+              "type": "destroy",
+              "text": "A house fire"
+            },
+            {
+              "id": "flood",
+              "type": "destroy",
+              "text": "A flood"
+            },
+            {
+              "id": "house",
+              "type": "destroy",
+              "text": "Burglary or moving house: everything at home is gone"
+            },
+            {
+              "id": "forget",
+              "type": "destroy",
+              "text": "You forget where it is, or can't remember"
+            },
+            {
+              "id": "hack",
+              "type": "expose",
+              "text": "Your phone or cloud account is hacked"
+            },
+            {
+              "id": "snoop",
+              "type": "expose",
+              "text": "A visitor or relative goes snooping"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "advanced-custody",
+      "level": "Advanced",
+      "title": "Passphrases, Paths & Planning",
+      "sats": 100,
+      "passMark": 0.8,
+      "lessons": [
+        "A passphrase is an extra word added to your recovery phrase. A different passphrase opens a different wallet. Lose it and those funds are unrecoverable.",
+        "The same phrase can show different addresses if a wallet uses a different derivation path or address type. A zero balance after restoring may just mean the wrong path.",
+        "Verify receiving addresses on your hardware wallet's own screen. Malware on your computer can swap what the computer shows.",
+        "Multisig needs several keys to spend, such as 2 of 3, so losing or leaking one key doesn't sink you.",
+        "Plan for emergencies: a trusted person should know where backups are and how recovery works, without holding your funds early."
+      ],
+      "simulation": {
+        "prompt": "You restore the correct phrase in a new wallet app and see 0 sats. What do you check first?",
+        "choices": [
+          {
+            "text": "Assume the funds were stolen and panic.",
+            "good": false,
+            "feedback": "Premature. Check the common causes first."
+          },
+          {
+            "text": "Check for a passphrase and the derivation path or address type.",
+            "good": true,
+            "feedback": "Correct. These are the usual reasons a restore looks empty."
+          },
+          {
+            "text": "Reinstall again and again until the balance appears.",
+            "good": false,
+            "feedback": "Repeating the same restore changes nothing."
+          }
+        ]
+      },
+      "quiz": [
+        {
+          "q": "You restore the right phrase but the balance is 0. What do you check first?",
+          "options": [
+            "Whether coins were stolen",
+            "Whether a passphrase, path or address type differs",
+            "Nothing, wait a week"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "You forgot your passphrase but still have your 24 words. What happens?",
+          "options": [
+            "Support can reset it",
+            "Funds behind that passphrase are unrecoverable",
+            "The wallet generates a new one for you"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Why verify a receive address on the hardware wallet's screen?",
+          "options": [
+            "It's faster",
+            "Malware can alter the address shown on your computer",
+            "It lowers fees"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "In a 2-of-3 multisig, what's true?",
+          "options": [
+            "Any one key can spend",
+            "Losing one key doesn't lose the funds",
+            "All three keys are needed"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Which backup plan is strongest?",
+          "options": [
+            "One steel backup at home",
+            "Steel backups in separate secure places plus a tested recovery",
+            "Phrase memorised only"
+          ],
+          "answer": 1
+        }
+      ],
+      "sims": [
+        {
+          "type": "scenes",
+          "title": "Hardware wallet setup",
+          "intro": "Your new hardware wallet just arrived. Set it up safely.",
+          "wrap": "Your keys are born on your own device, backed up offline, and guarded separately from any passphrase.",
+          "scenes": [
+            {
+              "q": "The box seal looks cut and re-glued.",
+              "options": [
+                {
+                  "t": "Use it anyway, it's probably fine",
+                  "good": false,
+                  "fb": "A tampered device can be pre-loaded to steal funds."
+                },
+                {
+                  "t": "Don't use it. Contact the seller for a replacement",
+                  "good": true,
+                  "fb": "Never trust a device with a broken seal."
+                }
+              ]
+            },
+            {
+              "q": "A card with 12 words is already in the box, 'for convenience'.",
+              "options": [
+                {
+                  "t": "Use those words",
+                  "good": false,
+                  "fb": "Pre-printed words mean someone else knows your keys."
+                },
+                {
+                  "t": "Ignore the card. Generate new words on the device",
+                  "good": true,
+                  "fb": "Only words made on your own device are yours."
+                }
+              ]
+            },
+            {
+              "card": {
+                "kind": "words"
+              },
+              "q": "The device shows your own words. What do you do?",
+              "options": [
+                {
+                  "t": "Take a photo so I don't lose them",
+                  "good": false,
+                  "fb": "Photos sync to clouds and get hacked."
+                },
+                {
+                  "t": "Write them by hand on the backup card and keep it offline",
+                  "good": true,
+                  "fb": "Offline and handwritten."
+                }
+              ]
+            },
+            {
+              "q": "Confirmation: which is word #3?",
+              "options": [
+                {
+                  "t": "planet",
+                  "good": false,
+                  "fb": "Check your card."
+                },
+                {
+                  "t": "{w3}",
+                  "good": true,
+                  "fb": "Correct."
+                },
+                {
+                  "t": "sugar",
+                  "good": false,
+                  "fb": "Check your card."
+                }
+              ]
+            },
+            {
+              "q": "Confirmation: which is word #8?",
+              "options": [
+                {
+                  "t": "{w8}",
+                  "good": true,
+                  "fb": "Correct."
+                },
+                {
+                  "t": "window",
+                  "good": false,
+                  "fb": "Check your card."
+                },
+                {
+                  "t": "drift",
+                  "good": false,
+                  "fb": "Check your card."
+                }
+              ]
+            },
+            {
+              "q": "The device offers an optional passphrase. What does it do?",
+              "options": [
+                {
+                  "t": "Replaces my PIN",
+                  "good": false,
+                  "fb": "The PIN and passphrase are different things."
+                },
+                {
+                  "t": "Adds an extra word that opens a separate hidden wallet",
+                  "good": true,
+                  "fb": "Different passphrase, different wallet."
+                },
+                {
+                  "t": "Backs up my seed",
+                  "good": false,
+                  "fb": "It's not a backup."
+                }
+              ]
+            },
+            {
+              "q": "You choose the passphrase 'northstar'. Where do you keep it?",
+              "options": [
+                {
+                  "t": "On the same card as my words",
+                  "good": false,
+                  "fb": "One thief would get both."
+                },
+                {
+                  "t": "Written separately, stored in a different secure place",
+                  "good": true,
+                  "fb": "Keep it apart from the words."
+                },
+                {
+                  "t": "In my phone notes",
+                  "good": false,
+                  "fb": "Digital copies get hacked."
+                }
+              ]
+            },
+            {
+              "q": "Later you forget the passphrase. Your words are safe. What happens to the funds under it?",
+              "options": [
+                {
+                  "t": "Support restores them",
+                  "good": false,
+                  "fb": "There is no support desk."
+                },
+                {
+                  "t": "They're unrecoverable, so guard it like the words",
+                  "good": true,
+                  "fb": "Exactly."
+                },
+                {
+                  "t": "The words alone still open them",
+                  "good": false,
+                  "fb": "The words alone open a different, empty wallet."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "scenes",
+          "title": "Send safely",
+          "intro": "You're paying a friend. Compare the address on your computer with the one on your hardware wallet.",
+          "wrap": "Compare every chunk on the device screen. Attackers can match the first and last characters.",
+          "scenes": [
+            {
+              "card": {
+                "kind": "addr",
+                "a": "bc1q9demo7k2f5x8w3h4t6y0r1e2uz",
+                "b": "bc1q9demo7k2f5x8w3h4t6y0r1e2uz"
+              },
+              "q": "What do you do?",
+              "options": [
+                {
+                  "t": "Approve: they match",
+                  "good": true,
+                  "fb": "Every chunk matches."
+                },
+                {
+                  "t": "Reject",
+                  "good": false,
+                  "fb": "They're identical. Compare chunk by chunk."
+                }
+              ]
+            },
+            {
+              "card": {
+                "kind": "addr",
+                "a": "bc1q9demo7k2f5x8w3h4t6y0r1e2uz",
+                "b": "bc1q9demo7k2f5y8w3h4t6y0r1e2uz"
+              },
+              "q": "What do you do?",
+              "options": [
+                {
+                  "t": "Approve: it looks the same",
+                  "good": false,
+                  "fb": "One character differs. Malware swaps addresses after you copy them."
+                },
+                {
+                  "t": "Reject and investigate",
+                  "good": true,
+                  "fb": "Caught it."
+                }
+              ]
+            },
+            {
+              "card": {
+                "kind": "addr",
+                "a": "bc1qxdemo4m8c2k7p9d3s6v1n5b0jh",
+                "b": "bc1qxdemo4m8c2k7q9d3s6v1n5b0jh"
+              },
+              "q": "The start and end match. What now?",
+              "options": [
+                {
+                  "t": "Approve: start and end match",
+                  "good": false,
+                  "fb": "Attackers match the ends on purpose."
+                },
+                {
+                  "t": "Compare every chunk, find the difference, reject",
+                  "good": true,
+                  "fb": "The middle differs."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "scenes",
+          "title": "Multisig builder",
+          "intro": "You're protecting serious savings. Design a 2-of-3 setup.",
+          "wrap": "Multisig removes the single point of failure: no single loss or leak is fatal.",
+          "scenes": [
+            {
+              "q": "Which setup removes a single point of failure?",
+              "options": [
+                {
+                  "t": "One key, one backup",
+                  "good": false,
+                  "fb": "Lose or leak it and you're done."
+                },
+                {
+                  "t": "2-of-3 multisig",
+                  "good": true,
+                  "fb": "Any two of three keys can spend."
+                },
+                {
+                  "t": "3-of-3 multisig",
+                  "good": false,
+                  "fb": "Losing any one key locks the funds."
+                }
+              ]
+            },
+            {
+              "q": "Where do the three keys go?",
+              "options": [
+                {
+                  "t": "All three in my home safe",
+                  "good": false,
+                  "fb": "One fire or burglary takes all three."
+                },
+                {
+                  "t": "Home safe, bank box, trusted relative",
+                  "good": true,
+                  "fb": "Separate places."
+                },
+                {
+                  "t": "Three phones I own",
+                  "good": false,
+                  "fb": "Phones get hacked and lost."
+                }
+              ]
+            },
+            {
+              "q": "A fire destroys the key in your home safe. Can you still spend?",
+              "options": [
+                {
+                  "t": "No, funds are lost",
+                  "good": false,
+                  "fb": "You still hold two of three keys."
+                },
+                {
+                  "t": "Yes, with the other two keys",
+                  "good": true,
+                  "fb": "Then move funds to a fresh setup."
+                },
+                {
+                  "t": "Only with the destroyed key",
+                  "good": false,
+                  "fb": "Any two keys work."
+                }
+              ]
+            },
+            {
+              "q": "A burglar steals one key. Can they spend?",
+              "options": [
+                {
+                  "t": "Yes, one key is enough",
+                  "good": false,
+                  "fb": "They need a second key."
+                },
+                {
+                  "t": "No, but I should move funds to a new setup soon",
+                  "good": true,
+                  "fb": "Don't wait for them to find another."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
